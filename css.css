@@ -1,0 +1,52 @@
+* {
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+p,
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 200px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: black;
+  min-height: 100vh;
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  color: aqua;
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+}
+.jugador {
+  flex-direction: column;
+}
+.los-numeros {
+  justify-content: center;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  font-weight: 900;
+}
+
+.nombre-persona {
+  text-align: center;
+  font-size: 3rem;
+  
+}
