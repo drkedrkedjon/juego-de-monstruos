@@ -9,32 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet">
   <title>Juego de Monstruos</title>
   <link rel="stylesheet" href="./css.css">
-  <script defer src="./javascript.js"></script>
+  <script defer type="module" src="./scripts/javascript.js"></script>
 </head>
 <body>
   <main class="container flex">
     <h1>La Gran Batalla</h1>
     <div class="batalla flex">
-      <div class="jugador flex">
-        <p class="nombre-persona">Boni</p>
-        <img src="./img/sasa.jpg" alt="">
-        <p>Energia: <span class="energia">60</span></p>
-        <div class="barra-energia"></div>
-        <div class="los-numeros flex">
-          <div class="numero">7</div>
-          <div class="numero">7</div>
-          <div class="numero">7</div>
-        </div>
+      <div id="el-bueno" class="jugador flex">
       </div>
-      <div class="jugador flex">
+      <div id="el-malo" class="jugador flex">
         <p class="nombre-persona">Clau</p>
         <img src="./img/clau.jpg" alt="">
         <p>Energia: <span class="energia">60</span></p>
         <div class="barra-energia"></div>
         <div class="los-numeros flex">
-          <div class="numero">7</div>
-          <div class="numero">7</div>
-          <div class="numero">7</div>
+          <div class="numero flex">0</div>
         </div>
       </div>  
     </div>
