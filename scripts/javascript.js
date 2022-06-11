@@ -7,6 +7,7 @@ class Personaje {
     Object.assign(this, data)
     this.numeros = []
     this.aCargar = true
+    this.dadosHtml = ''
     this.puntosAtaque = 0
   }
 
@@ -24,6 +25,7 @@ class Personaje {
 
   generarDadosHtml() {
     const numerosArray = this.numerosAleatorios()
+    this.puntosAtaque = reducirPuntos(numerosArray)
     return numerosArray.map( num => `<div class="numero flex">${num}</div>`).join('')
   }
 
@@ -35,29 +37,34 @@ class Personaje {
         <p>Energia: <span class="energia">${energia}</span></p>
         <div class="barra-energia"></div>
         <div class="los-numeros flex">
-          ${this.generarDadosHtml()}
+          ${this.dadosHtml}
         </div>
       `
   }
 
-  renderPersona() {
-    this.generarDadosHtml
+  generarNuevosNumeros() {
+    this.dadosHtml = this.generarDadosHtml()
   }
+}
 
+// *************
+
+function compararAtaque() {
+  elMalo.energia -= boni.puntosAtaque
+  boni.energia -= elMalo.puntosAtaque
 }
 
 function reducirPuntos(elArray) { 
   return elArray.reduce( (acc, num) =>  acc + num)
 }
 
-function puntuacion() {
-
-}
-
 document.querySelector('#btn').addEventListener('click', atacar)
 function atacar() {
   boni.aCargar = false
   elMalo.aCargar = false
+  boni.generarNuevosNumeros()
+  elMalo.generarNuevosNumeros()
+  compararAtaque()
   document.querySelector('#el-bueno').innerHTML = boni.generarPersonajeHtml()
   document.querySelector('#el-malo').innerHTML = elMalo.generarPersonajeHtml()
 }
@@ -65,10 +72,8 @@ function atacar() {
 const boni = new Personaje(data.boni)
 const elMalo = new Personaje(data[losMalos.shift()])
 
+boni.generarNuevosNumeros()
+elMalo.generarNuevosNumeros()
 document.querySelector('#el-bueno').innerHTML = boni.generarPersonajeHtml()
 document.querySelector('#el-malo').innerHTML = elMalo.generarPersonajeHtml()
 
-
-
-
-// Generar HTML de los primeros dos personajes al cargar la pagina
