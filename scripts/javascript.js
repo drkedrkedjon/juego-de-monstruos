@@ -55,6 +55,18 @@ class Personaje {
 }
 
 // *************
+function finalDeJuego() {
+  if (boni.energia > 0) {
+    document.querySelector('#batalla').innerHTML = `
+      <h2>Ha Ganado BONI</h2>
+    `
+  } else {
+    document.querySelector('#batalla').innerHTML = `
+    <h2>Han Ganado LOS MALOS</h2>
+  `
+  }
+}
+
 
 function finalDeJuego() {
   if (boni.energia > 0) {
